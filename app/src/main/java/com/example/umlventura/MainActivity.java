@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     Button btnInserisci;
-    EditText txtTitolo;
+    EditText txtTitolo = (EditText)findViewById(R.id.txtTitolo);
     gestoreBrani gb;
 
     @Override
@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtTitolo = (EditText)findViewById((R.id.txtTitolo);
         btnInserisci = (Button) findViewById(R.id.btnInserisci);
 
         btnInserisci.setOnClickListener(new View.OnClickListener() {
