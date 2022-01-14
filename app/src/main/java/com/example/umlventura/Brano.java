@@ -3,6 +3,10 @@ package com.example.umlventura;
 import java.util.Date;
 
 public class Brano {
+    public String getTitolo() {
+        return titolo;
+    }
+
     private String titolo;
     private int durata;
     private String autore;
@@ -32,6 +36,10 @@ public class Brano {
                 ", autore='" + autore + '\'' +
                 ", dataCreazione=" + dataCreazione +
                 '}';
+    }
+    public Brano(String titolo)
+    {
+        this.titolo=titolo;
     }
 
 }

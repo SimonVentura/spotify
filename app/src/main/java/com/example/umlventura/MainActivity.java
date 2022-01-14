@@ -17,12 +17,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        txtTitolo = (EditText)findViewById(R.id.txtTitolo);
         btnInserisci = (Button) findViewById(R.id.btnInserisci);
+        gb = new gestoreBrani();
 
         btnInserisci.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                gb.addBrano();
+            public void onClick(View view)
+            {
+                gb.addBrano(txtTitolo.getText().toString());
             }
         });
     }

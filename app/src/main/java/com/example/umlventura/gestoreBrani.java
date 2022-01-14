@@ -8,8 +8,17 @@ public class gestoreBrani {
     public gestoreBrani(){
         listaBrani= new ArrayList<Brano>();
     }
-    public void addBrano()
+    public void addBrano(String titolo)
     {
-
+        Brano br = new Brano(titolo);
+        listaBrani.add(br);
+    }
+    public void listaBrani()
+    {
+        StringBuilder stBui = new StringBuilder();
+        for (Brano brV : listaBrani)
+        {
+            stBui.append(brV.toString());
+        }
     }
 }
