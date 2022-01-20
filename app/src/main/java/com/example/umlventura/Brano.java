@@ -11,6 +11,7 @@ public class Brano {
     private int durata;
     private String autore;
     private Date dataCreazione;
+    private String genere;
 
     public void setTitolo(String titolo) {
         this.titolo = titolo;
@@ -37,9 +38,10 @@ public class Brano {
                 ", dataCreazione=" + dataCreazione +
                 '}';
     }
-    public Brano(String titolo)
+    public Brano(String titolo,String genere)
     {
         this.titolo=titolo;
+        this.genere=genere;
     }
 
 }
