@@ -2,6 +2,7 @@ package com.example.umlventura;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,7 @@ import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
     Button btnInserisci;
+    Button btnMostra;
     EditText txtTitolo = (EditText)findViewById(R.id.txtTitolo);
     gestoreBrani gb;
     Spinner spnGeneri;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         txtTitolo = (EditText)findViewById(R.id.txtTitolo);
         btnInserisci = (Button) findViewById(R.id.btnInserisci);
+        btnMostra = (Button) findViewById(R.id.btnMosta);
         spnGeneri = (Spinner) findViewById(R.id.spnGeneri);
         gb = new gestoreBrani();
 
@@ -32,16 +35,23 @@ public class MainActivity extends AppCompatActivity {
         );
         spnGeneri.setAdapter(aaG);
 
-
-
         btnInserisci.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 String genSelez = spnGeneri.getSelectedItem().toString();
-                gb.addBrano(txtTitolo.getText().toString(),genSelez);
-
+                gb.addBrano(txtTitolo.getText().toString(), genSelez);
             }
         });
+        btnMostra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String valoreletto = gb.ListaBrani();
+                Intent i = new Intent(getApplicationContext(),MainActivity2.class);
+                i.putExtra("stringa",valoreletto);
+                startActivity(i);
+            }
+        });
+
+
     }
 }

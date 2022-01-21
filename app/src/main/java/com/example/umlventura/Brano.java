@@ -8,26 +8,31 @@ public class Brano {
     }
 
     private String titolo;
+
+    public int getDurata() {
+        return durata;
+    }
+
+    public String getAutore() {
+        return autore;
+    }
+
+    public Date getDataCreazione() {
+        return dataCreazione;
+    }
+
+    public String getGenere() {
+        return genere;
+    }
+
+    public void setGenere(String genere) {
+        this.genere = genere;
+    }
+
     private int durata;
     private String autore;
     private Date dataCreazione;
     private String genere;
-
-    public void setTitolo(String titolo) {
-        this.titolo = titolo;
-    }
-
-    public void setAutore(String autore) {
-        this.autore = autore;
-    }
-
-    public void setDataCreazione(Date dataCreazione) {
-        this.dataCreazione = dataCreazione;
-    }
-
-    public void setDurata(int durata) {
-        this.durata = durata;
-    }
 
     @Override
     public String toString() {
