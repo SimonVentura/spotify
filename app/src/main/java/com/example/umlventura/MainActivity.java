@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,11 +20,17 @@ public class MainActivity extends AppCompatActivity {
     String[] generi = {"Pop","Rock","Dance","Trap"};
 
 
+    //variabili per il LOG
+    String tag="MainActivity";
+    String btn1="bottone inserisci";
+    String btn2="bottone mostra";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.d(tag,"lanciato il metodo on create");
         txtTitolo = (EditText)findViewById(R.id.txtTitolo);
         btnInserisci = (Button) findViewById(R.id.btnInserisci);
         btnMostra = (Button) findViewById(R.id.btnMosta);
@@ -31,25 +38,28 @@ public class MainActivity extends AppCompatActivity {
         gb = new gestoreBrani();
 
         ArrayAdapter<String> aaG = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item,generi
-        );
-        spnGeneri.setAdapter(aaG);
+                this, android.R.layout.simple_spinner_item,generi);
+                spnGeneri.setAdapter(aaG);
 
         btnInserisci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String genSelez = spnGeneri.getSelectedItem().toString();
                 gb.addBrano(txtTitolo.getText().toString(), genSelez);
+                Log.d(btn1,"entrato nel metodo onclick per inserire");
             }
         });
         btnMostra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String valoreletto = gb.ListaBrani();
+                StringBuilder valoreletto = gb.ListaBrani();
                 Intent i = new Intent(getApplicationContext(),MainActivity2.class);
-                i.putExtra("stringa",valoreletto);
+                i.putExtra("stringa",valoreletto.toString());
                 startActivity(i);
+                Log.d(btn2,"entrato nel metodo onclick per mostrare");
+
             }
+
         });
 
 

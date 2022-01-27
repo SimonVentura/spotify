@@ -8,23 +8,18 @@ public class Brano {
     }
 
     private String titolo;
-
     public int getDurata() {
         return durata;
     }
-
     public String getAutore() {
         return autore;
     }
-
     public Date getDataCreazione() {
         return dataCreazione;
     }
-
     public String getGenere() {
         return genere;
     }
-
     public void setGenere(String genere) {
         this.genere = genere;
     }

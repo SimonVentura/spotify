@@ -26,13 +26,12 @@ public class gestoreBrani {
         }
     }
 
-    public String ListaBrani(){
+    public StringBuilder ListaBrani(){
         StringBuilder sbBrani = new StringBuilder();
         for (Brano brC : listaBrani)
         {
-            sbBrani.append(brC.getTitolo()+"-");
-            sbBrani.append(brC.getAutore()+"\n");
+            sbBrani.append(brC.toString());
         }
-        return sbBrani.toString();
+        return sbBrani;
     }
 }
