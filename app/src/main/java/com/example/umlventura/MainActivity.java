@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnMostra;
     EditText txtTitolo = (EditText)findViewById(R.id.txtTitolo);
     gestoreBrani gb;
+    gestore gest;
     Spinner spnGeneri;
     String[] generi = {"Pop","Rock","Dance","Trap"};
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(tag,"lanciato il metodo on create");
+        gest = new gestore();
         txtTitolo = (EditText)findViewById(R.id.txtTitolo);
         btnInserisci = (Button) findViewById(R.id.btnInserisci);
         btnMostra = (Button) findViewById(R.id.btnMosta);
