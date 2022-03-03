@@ -6,15 +6,17 @@ import java.util.ArrayList;
 
 public class gestoreBrani {
     ArrayList<Brano> listaBrani;
+    gestore g;
 
     public gestoreBrani(){
         listaBrani= new ArrayList<Brano>();
     }
 
-    public void addBrano(String titolo,String genere)
+    public void addBrano(String titolo,String genere,gestore g)
     {
         Brano br = new Brano(titolo,genere);
         listaBrani.add(br);
+        this.g=g;
     }
 
     public void listaBrani()

@@ -31,12 +31,16 @@ public class gestore {
         InputStream is = res.openRawResource(R.raw.brani);
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         try {
-            while ((testo = br.readLine()) != null) {
-                sb.append(testo + "\n");
+            String s = br.readLine();
+            for ( : )
+            {
+                br.append(br.toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
 
         return sb.toString();
     }
