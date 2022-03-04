@@ -16,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
     Button btnMostra;
     EditText txtTitolo = (EditText)findViewById(R.id.txtTitolo);
     gestoreBrani gb;
-    gestore gest;
     Spinner spnGeneri;
     String[] generi = {"Pop","Rock","Dance","Trap"};
+    Gestore g;
 
 
     //variabili per il LOG
@@ -31,13 +31,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Log.d(tag,"lanciato il metodo on create");
-        gest = new gestore();
         txtTitolo = (EditText)findViewById(R.id.txtTitolo);
         btnInserisci = (Button) findViewById(R.id.btnInserisci);
         btnMostra = (Button) findViewById(R.id.btnMosta);
         spnGeneri = (Spinner) findViewById(R.id.spnGeneri);
-        gb = new gestoreBrani();
+
+        gb = new gestoreBrani(g);
+        g = new Gestore();
 
         ArrayAdapter<String> aaG = new ArrayAdapter<String>(
                 this, android.R.layout.simple_spinner_item,generi);
@@ -51,17 +53,18 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(btn1,"entrato nel metodo onclick per inserire");
             }
         });
+
+
         btnMostra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StringBuilder valoreletto = gb.ListaBrani();
+                String a= g.leggiFileRaw(getApplicationContext());
+                //StringBuilder valoreletto = gb.ListaBrani();
                 Intent i = new Intent(getApplicationContext(),MainActivity2.class);
-                i.putExtra("stringa",valoreletto.toString());
+                i.putExtra("stringa",a.toString());
                 startActivity(i);
                 Log.d(btn2,"entrato nel metodo onclick per mostrare");
-
             }
-
         });
 
 

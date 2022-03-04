@@ -6,22 +6,23 @@ import java.util.ArrayList;
 
 public class gestoreBrani {
     ArrayList<Brano> listaBrani;
-    gestore g;
+    Gestore g;
 
-    public gestoreBrani(){
+    public gestoreBrani(Gestore g){
+        this.g=g;
         listaBrani= new ArrayList<Brano>();
     }
 
-    public void addBrano(String titolo,String genere,gestore g)
+    public void addBrano(String titolo,String genere)
     {
         Brano br = new Brano(titolo,genere);
         listaBrani.add(br);
-        this.g=g;
     }
 
     public void listaBrani()
     {
         StringBuilder stBui = new StringBuilder();
+
         for (Brano brV : listaBrani)
         {
             stBui.append(brV.toString());
@@ -30,8 +31,7 @@ public class gestoreBrani {
 
     public StringBuilder ListaBrani(){
         StringBuilder sbBrani = new StringBuilder();
-        for (Brano brC : listaBrani)
-        {
+        for (Brano brC : listaBrani) {
             sbBrani.append(brC.toString());
         }
         return sbBrani;

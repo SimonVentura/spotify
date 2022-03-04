@@ -2,6 +2,7 @@ package com.example.umlventura;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.widget.ArrayAdapter;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,19 +11,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class gestore {
+public class Gestore {
 
     String nomeFile;
     Context c;
     StringBuilder sB;
 
-    public gestore(String nomeFile)
-    {
-        this.nomeFile = nomeFile;
-    }
-    public gestore(){
-
+    public Gestore(){
     };
+
+
     public String leggiFileRaw(Context c)
     {
         String testo="";
@@ -31,28 +29,21 @@ public class gestore {
         InputStream is = res.openRawResource(R.raw.brani);
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         try {
-            String s = br.readLine();
-            for ( : )
-            {
-                br.append(br.toString());
+            while ((testo = br.readLine()) != null) {
+                sb.append(testo + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
         return sb.toString();
     }
 
-    public String scriviFile(String nomeFile, Context c){
+    public String scriviFile(String nomeFile, Context c,String testoDaScrivere){
         FileOutputStream fileO;
-        String testodascrivere="";
         String esito="";
-
         try {
             fileO = c.openFileOutput(nomeFile,Context.MODE_PRIVATE);
-            fileO.write(testodascrivere.getBytes());
+            fileO.write(testoDaScrivere.getBytes());
             fileO.close();
             esito="scrittura corretta";
         } catch (FileNotFoundException e) { //FNF
@@ -61,7 +52,6 @@ public class gestore {
         } catch (IOException e) {          //I/O
             esito="errore in scrittura";
         }
-
         return esito;
     }
 }
